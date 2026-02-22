@@ -2,31 +2,31 @@ class Decant < Formula
   desc "Clean noisy HTML into compact markdown for LLM context"
   homepage "https://github.com/mtrifilo/decant"
   license "MIT"
-  version "0.1.3"
+  version "0.6.0"
 
-  url "https://github.com/mtrifilo/decant/archive/refs/tags/v0.1.3.tar.gz"
-  sha256 "65bc8b0d0b019aaabb8f6eb362b83c7fde98a6d040709b9f26ffe53259df8f10"
+  url "https://github.com/mtrifilo/decant/archive/refs/tags/v0.6.0.tar.gz"
+  sha256 "9d292e3e95afe061cc84fb5f4b338595f5fde64654e4c4b59a7fa3b146b9c5c4"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/mtrifilo/decant/releases/download/v0.1.3/glean-darwin-arm64"
-      sha256 "1b4c2e130df6ab6c15db42f231df62d011d056e653bd06deeee1785b8edeab34"
+      url "https://github.com/mtrifilo/decant/releases/download/v0.6.0/decant-darwin-arm64"
+      sha256 "a976a3a3de26dd7a3c8f49871df697a9bbc3a3e3875f8e0b99a59ab588874e4d"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/mtrifilo/decant/releases/download/v0.1.3/glean-linux-x64"
-      sha256 "b1abbeff5c24691713366fa928224931aeea78af469e31014e5d1051f89fe79e"
+      url "https://github.com/mtrifilo/decant/releases/download/v0.6.0/decant-linux-x64"
+      sha256 "9e92ef88710c27441fccfaa7a7db457fd46665e69538ca28cb2c09cc90cb183c"
     end
   end
 
   def install
     binary_name =
       if OS.mac? && Hardware::CPU.arm?
-        "glean-darwin-arm64"
+        "decant-darwin-arm64"
       elsif OS.linux? && Hardware::CPU.intel?
-        "glean-linux-x64"
+        "decant-linux-x64"
       else
         odie <<~EOS
           Prebuilt binaries are currently available for:
